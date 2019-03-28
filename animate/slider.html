@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<title>Slider</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    .slider-images {
+        display: none;
+    }
+
+    .mx-auto {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .slider-container {
+        max-width: 500px;
+        height: 400px;
+        overflow: hidden;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    .slider-container img {
+        height: auto;
+        width: 100%;
+    }
+
+    .slider-left {
+        position: relative;
+        animation: slideLeft 0.5s
+    }
+
+    @keyframes slideLeft {
+        from {
+            left: -300px;
+            opacity: 0
+        }
+        to {
+            left: 0;
+            opacity: 1
+        }
+    }
+</style>
+
+<body>
+
+    <div class="mx-auto slider-container">
+        <img class="slider-images slider-left" src="http://as01.epimg.net/en/imagenes/2018/09/25/football/1537874937_165026_noticia_normal.jpg">
+        <img class="slider-images slider-left" src="https://d3nfwcxd527z59.cloudfront.net/content/uploads/2018/12/24082045/Lionel-Messi-Barcelona.jpg">
+        <img class="slider-images slider-left" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnUsOCkD_2wQSPDxfTfLX7ML-Tkgw20Z5cJHUK--1iQQljv_vB">
+        <img class="slider-images slider-left" src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/03/18/08/lionel-messi.jpg">
+    </div>
+
+    <script>
+        var count = 0;
+        slider();
+
+        function slider() {
+            var a;
+            var b = document.getElementsByClassName("slider-images");
+            for (a = 0; a < b.length; a++) {
+                b[a].style.display = "none";
+            }
+            count++;
+            if (count > b.length) {
+                count = 1
+            }
+            b[count - 1].style.display = "block";
+            setTimeout(slider, 4000);
+        }
+    </script>
+
+</body>
+
+</html>
